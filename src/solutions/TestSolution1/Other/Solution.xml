@@ -8,7 +8,7 @@
     <Descriptions>
       <Description description="Esta es una solución que contiene un flujo" languagecode="3082" />
     </Descriptions>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.2</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>ZeroStateLabs</UniqueName>
