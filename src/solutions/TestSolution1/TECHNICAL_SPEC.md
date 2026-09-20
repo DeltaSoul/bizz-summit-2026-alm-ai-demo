@@ -1,115 +1,91 @@
+```markdown
 # Especificación Técnica de Arquitectura
 
 ## 1. Resumen Ejecutivo
+La solución analizada tiene como objetivo principal gestionar información relacionada con clientes y detalles de órdenes de venta en un entorno empresarial. Incluye componentes de datos, procesos automatizados y formularios para la interacción con los usuarios. La solución permite la creación, actualización y consulta de registros de clientes y órdenes de venta, así como la automatización de notificaciones periódicas mediante correos electrónicos.
 
-La solución "TestSolution1" está diseñada para gestionar información relacionada con clientes y detalles de órdenes de venta en un entorno empresarial. La solución incluye dos tablas principales: `zsl_customer` para almacenar información de clientes y `zsl_salesorderdetail` para gestionar los detalles de las órdenes de venta. Además, la solución incluye un flujo automatizado en Power Automate llamado "Notificación horario", que envía notificaciones por correo electrónico en intervalos regulares.
-
-La solución también incluye varias vistas y formularios para facilitar la gestión y visualización de los datos de las tablas mencionadas. Estas vistas y formularios están diseñados para proporcionar una experiencia de usuario optimizada, permitiendo a los usuarios interactuar con los datos de manera eficiente. En conjunto, la solución busca mejorar la gestión de clientes y órdenes de venta, así como automatizar notificaciones periódicas.
-
----
+Los componentes de la solución están diseñados para facilitar la gestión de datos de clientes y órdenes de venta, incluyendo relaciones entre entidades, vistas personalizadas y formularios para la interacción del usuario. Además, se incluye un flujo de Power Automate que envía notificaciones por correo electrónico de manera recurrente, lo que mejora la eficiencia operativa y la comunicación dentro de la organización.
 
 ## 2. Inventario de Componentes
-
-| Display Name               | Logical Name / Archivo                                      | Tipo (Flow, Table, App, EnvVar) | Descripción / Propósito                                          |
-|----------------------------|------------------------------------------------------------|---------------------------------|------------------------------------------------------------------|
-| Notificación horario       | Notificacinhorario-2B44A048-0EB5-F111-AAAB-7C1E5287D75E.json | Flow                            | Flujo que envía notificaciones por correo electrónico cada hora. |
-| Customer                   | zsl_customer                                               | Table                           | Tabla que almacena información de clientes.                     |
-| Sales Order Detail         | zsl_salesorderdetail                                       | Table                           | Tabla que almacena detalles de órdenes de venta.                |
-| Office 365 Outlook         | zsl_sharedoffice365_ee2b8                                  | Connection Reference            | Conexión para enviar correos electrónicos a través de Office 365.|
-
----
+| Display Name                     | Logical Name / Archivo                                     | Tipo (Flow, Table, App, EnvVar) | Descripción / Propósito                                      |
+|----------------------------------|-----------------------------------------------------------|---------------------------------|-------------------------------------------------------------|
+| Notificación horario             | Notificacinhorario-2B44A048-0EB5-F111-AAAB-7C1E5287D75E.json | Flow                            | Flujo que envía correos electrónicos recurrentes cada hora. |
+| Customer                         | zsl_customer                                              | Table                           | Tabla que contiene información de clientes.                 |
+| Sales Order Detail               | zsl_salesorderdetail                                      | Table                           | Tabla que contiene detalles de órdenes de venta.            |
+| Office 365 Outlook TestSolution1 | zsl_sharedoffice365_ee2b8                                 | Connection Reference            | Conexión a Office 365 para el envío de correos electrónicos.|
 
 ## 3. Modelo de Datos (Dataverse)
-
 ```mermaid
 erDiagram
   zsl_customer {
     string zsl_customerid PK
     string zsl_fullname
-    string zsl_firstname
-    string zsl_lastname
     datetime createdon
-    datetime modifiedon
     string ownerid FK
-    string owningbusinessunit FK
-    string owningteam FK
-    string owninguser FK
-    state statecode
-    status statuscode
+    string statecode
+    string statuscode
   }
 
   zsl_salesorderdetail {
     string zsl_salesorderdetailid PK
     string zsl_name
+    datetime createdon
     string zsl_salesorderid FK
-    string zsl_salesorderdetailid1
-    datetime zsl_orderdate
-    datetime zsl_duedate
-    datetime zsl_shipdate
-    string zsl_employeeid FK
     string zsl_customerid FK
-    decimal zsl_subtotalamount
-    decimal zsl_taxamount
-    decimal zsl_freightcharge
-    decimal zsl_totaldue
-    string zsl_productid FK
+    string zsl_productid
     int zsl_orderquantity
     decimal zsl_unitprice
     decimal zsl_unitpricediscount
     decimal zsl_linetotal
-    string zsl_customer1 FK
-    datetime createdon
-    datetime modifiedon
+    datetime zsl_orderdate
+    datetime zsl_duedate
+    datetime zsl_shipdate
+    decimal zsl_subtotalamount
+    decimal zsl_taxamount
+    decimal zsl_freightcharge
+    decimal zsl_totaldue
     string ownerid FK
-    string owningbusinessunit FK
-    string owningteam FK
-    string owninguser FK
-    state statecode
-    status statuscode
+    string statecode
+    string statuscode
   }
 
-  zsl_customer ||--o{ zsl_salesorderdetail : "zsl_customer1"
-  zsl_customer ||--o{ zsl_salesorderdetail : "zsl_customerid"
-  zsl_salesorderdetail ||--o{ zsl_customer : "zsl_customerid"
+  zsl_customer ||--o{ zsl_salesorderdetail : "has"
 ```
-
----
 
 ## 4. Lógica de Procesos (Power Automate)
+El flujo "Notificación horario" está configurado para ejecutarse de manera recurrente cada hora. Este flujo utiliza un disparador de tipo "Recurrence" que se activa cada hora a partir de una fecha y hora específica. Una vez activado, el flujo ejecuta una acción para enviar un correo electrónico utilizando la conexión de Office 365.
 
-### Flujo: Notificación horario
-**Descripción:** Este flujo se ejecuta cada hora y envía un correo electrónico con la estampa de tiempo actual al destinatario `juan.hincapie@zerostatelabs.dev`.
-
-**Trigger:**
-- **Recurrence:** Se ejecuta cada 1 hora, comenzando desde el 20 de septiembre de 2026 a las 08:00 UTC.
-
-**Acciones:**
-1. **Enviar correo electrónico (V2):** Envía un correo electrónico con los siguientes detalles:
-   - Destinatario: `juan.hincapie@zerostatelabs.dev`
-   - Asunto: "Estampa de tiempo actual @{utcNow()}"
-   - Cuerpo: `<p>Estampa de tiempo actual @{utcNow()}</p>`
-   - Importancia: Normal
-
+### Lógica del flujo
 ```mermaid
 flowchart TD
-  A["Recurrence (Cada hora)"] --> B["Enviar correo (V2)"]
+  A["Inicio (Recurrence)"] --> B["Enviar correo electrónico (V2)"]
 ```
 
----
+- **Trigger:** Recurrence - Se ejecuta cada hora a partir de "2026-09-20T08:00:00Z".
+- **Acción:** Enviar correo electrónico (V2) - Envía un correo a "juan.hincapie@zerostatelabs.dev" con el asunto y cuerpo que incluyen la estampa de tiempo actual.
 
 ## 5. Interfaz de Usuario (Canvas / Model-Driven)
+La solución incluye varios formularios asociados a las entidades `zsl_customer` y `zsl_salesorderdetail`. Estos formularios están diseñados para facilitar la interacción del usuario con los datos de las entidades.
 
-### Formularios
-1. **Formulario de Customer:**
-   - **General:** Contiene campos como `FullName`, `Propietario`, `CustomerID`, `FirstName`, y `LastName`.
-   - **Detalles:** Incluye información adicional como estado y razones del estado.
+### Formularios de la entidad `zsl_customer`:
+1. **Formulario "Información" (ID: {087abbaf-5f1c-4ddc-9796-57a6dcf4d5eb}):**
+   - Pantalla principal para gestionar información general del cliente, como nombre completo, propietario, y fecha de creación.
 
-2. **Formulario de Sales Order Detail:**
-   - **General:** Incluye campos como `Primary Column`, `Propietario`, `SalesOrderID`, `OrderDate`, `DueDate`, `ShipDate`, entre otros.
-   - **Detalles:** Proporciona información detallada sobre los productos, cantidades y precios relacionados con las órdenes de venta.
+2. **Formulario "Customer activo" (ID: {121fc952-7a57-41b2-8d4d-9fe7deada275}):**
+   - Vista personalizada para mostrar clientes activos con atributos como nombre completo, fecha de creación, y estado.
 
-### Vistas
-1. **Customer activo:** Muestra clientes activos con campos como `FullName`, `CustomerID`, `FirstName`, y `LastName`.
-2. **Sales Order Detail activo:** Muestra detalles de órdenes de venta activas con campos como `Name`, `OrderDate`, `DueDate`, y `TotalDue`.
+### Formularios de la entidad `zsl_salesorderdetail`:
+1. **Formulario "Información" (ID: {0fc10cc2-49f9-4c8b-8b11-eb0e8841aa38}):**
+   - Pantalla principal para gestionar detalles de órdenes de venta, incluyendo información como ID de la orden, cantidad de productos, precio unitario, y total de la línea.
 
----
+2. **Formulario "Sales Order Detail activo" (ID: {4e706b9b-c7f7-4d91-bd06-fdbabfd8dcd6}):**
+   - Vista personalizada para mostrar detalles de órdenes de venta activas con atributos como nombre, fecha de creación, y estado.
+
+3. **Formulario "Sales Order Detail inactivo" (ID: {536f4dc9-0025-467a-9360-9012497fe190}):**
+   - Vista personalizada para mostrar detalles de órdenes de venta inactivas.
+
+4. **Formulario "Mis Sales Order Detail" (ID: {7520a356-c765-4d92-8f4b-c9a7d9277737}):**
+   - Vista personalizada para mostrar detalles de órdenes de venta activas propiedad del usuario actual.
+
+En general, los formularios están diseñados para proporcionar una experiencia de usuario intuitiva y eficiente en la gestión de datos de clientes y órdenes de venta.
+```
