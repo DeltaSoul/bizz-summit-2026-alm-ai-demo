@@ -38,18 +38,18 @@ xml_content = xml_content[:80000]
 # 3. El Prompt del Arquitecto
 system_prompt = """
 Eres un Arquitecto de Soluciones experto en Power Platform.
-Tu objetivo es analizar el archivo customizations.xml de una solución y generar una especificación técnica en formato Markdown.
+Tu objetivo es analizar los archivos fuente de una solución (XML de Dataverse, JSON de Power Automate, YAML/XML de Canvas Apps) y generar una especificación técnica en formato Markdown.
 
 REGLAS ESTRICTAS:
-1. Extrae todas las Entidades (Tablas) personalizadas.
-2. Extrae las Relaciones entre ellas.
-3. Genera un diagrama Entidad-Relación utilizando sintaxis Mermaid.js (bloque ```mermaid erDiagram ... ```).
-4. El output debe ser SOLO el código Markdown válido, sin texto introductorio ni despedidas.
+1. Extrae todas las Entidades (Tablas) de Dataverse y sus Relaciones (si las hay).
+2. Genera un diagrama Entidad-Relación utilizando sintaxis Mermaid.js (erDiagram). Si no hay tablas, omite esta sección.
+3. Analiza la lógica de los flujos de Power Automate (archivos JSON) y explica qué hacen paso a paso.
+4. Genera un diagrama de flujo simple con Mermaid.js (flowchart TD) para los Power Automates encontrados.
+5. Enumera las Canvas Apps encontradas y su propósito principal basándote en sus pantallas o controles.
+6. El output debe ser SOLO el código Markdown válido, sin texto introductorio ni despedidas.
 """
 
-user_prompt = f"Analiza el siguiente customizations.xml de la solución:\n\n{xml_content[:80000]}" 
-# Truncado por límite de seguridad para la ventana de contexto del prompt.
-# Nota técnica: gpt-4o soporta 128k tokens, pero truncamos para asegurar consistencia y coste.
+user_prompt = f"Analiza los siguientes archivos fuente de la solución:\n\n{xml_content}"
 
 # 4. Llamada REST a Azure OpenAI Foundry
 url = f"{ENDPOINT}/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2025-01-01-preview"
