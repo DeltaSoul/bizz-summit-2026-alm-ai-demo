@@ -7,16 +7,33 @@ ENDPOINT = os.environ.get("AZURE_OPENAI_ENDPOINT", "").rstrip('/')
 API_KEY = os.environ.get("AZURE_OPENAI_KEY")
 DEPLOYMENT_NAME = "gpt-4o" # Nombre exacto del despliegue en Sweden Central
 
-# 2. Leer la metadata de la solución
-# Corrección de arquitectura: El comando unpack de Power Platform deposita el customizations.xml
-# principal en la carpeta Other/, mientras que otros recursos tienen sus propias carpetas.
-xml_path = "src/solution/Other/customizations.xml"
-try:
-    with open(xml_path, 'r', encoding='utf-8') as file:
-        xml_content = file.read()
-except FileNotFoundError:
-    print(f"Error crítico: No se encontró el archivo en {xml_path}. Verifique la ejecución del paso Unpack.")
+# 2. Leer la metadata de la solución de forma agnóstica
+# Corrección arquitectónica: En lugar de buscar solo Other/customizations.xml, 
+# recorremos todo src/solution para capturar flujos (.json), tablas (.xml) y apps.
+solution_dir = "src/solution"
+xml_content = ""
+
+if not os.path.exists(solution_dir):
+    print(f"Error crítico: No se encontró el directorio base {solution_dir}. Verifique el paso Unpack.")
     exit(1)
+
+for root, dirs, files in os.walk(solution_dir):
+    for file_name in files:
+        if file_name.endswith(('.xml', '.json')):
+            file_path = os.path.join(root, file_name)
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    xml_content += f"\n--- ARCHIVO: {file_name} ---\n"
+                    xml_content += f.read()[:20000] # Evitar que un solo archivo inunde el buffer
+            except Exception as e:
+                print(f"Advertencia: No se pudo leer {file_path}: {e}")
+
+if not xml_content.strip():
+    print("Advertencia: No se encontraron archivos XML o JSON en la solución. ¿Está vacía?")
+    xml_content = "Solución vacía o sin componentes soportados."
+
+# Truncado general por seguridad de token (80k chars = ~20k tokens)
+xml_content = xml_content[:80000]
 
 # 3. El Prompt del Arquitecto
 system_prompt = """
