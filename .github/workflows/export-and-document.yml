@@ -11,6 +11,10 @@ on:
 jobs:
   export-unpack-document:
     runs-on: ubuntu-latest
+    # QA: Prevenir colisiones si se lanzan 2 despliegues concurrentes de la misma solución
+    concurrency:
+      group: ${{ github.workflow }}-${{ inputs.solution_name }}
+      cancel-in-progress: true
     permissions:
       contents: write  # Permiso estricto requerido para el push automatizado del Action
 
@@ -73,3 +77,9 @@ jobs:
             git pull --rebase origin main
             git push
           fi
+
+      - name: Subir ZIP Desempaquetado como Artefacto (Backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.solution_name }}_unmanaged
+          path: out/exported_solution.zip

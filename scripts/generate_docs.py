@@ -1,4 +1,5 @@
 import os
+import sys
 import requests
 import json
 
@@ -15,25 +16,27 @@ xml_content = ""
 
 if not os.path.exists(solution_dir):
     print(f"Error crítico: No se encontró el directorio base {solution_dir}. Verifique el paso Unpack.")
-    exit(1)
+    sys.exit(1)
 
 for root, dirs, files in os.walk(solution_dir):
     for file_name in files:
-        if file_name.endswith(('.xml', '.json')):
+        # QA: Añadimos .yaml para atrapar el código fuente de las Canvas Apps desempaquetadas
+        if file_name.endswith(('.xml', '.json', '.yaml', '.yml')):
             file_path = os.path.join(root, file_name)
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     xml_content += f"\n--- ARCHIVO: {file_name} ---\n"
-                    xml_content += f.read()[:20000] # Evitar que un solo archivo inunde el buffer
+                    # Aumentamos a 30k por archivo para Canvas Apps complejas
+                    xml_content += f.read()[:30000] 
             except Exception as e:
                 print(f"Advertencia: No se pudo leer {file_path}: {e}")
 
 if not xml_content.strip():
-    print("Advertencia: No se encontraron archivos XML o JSON en la solución. ¿Está vacía?")
+    print("Advertencia: No se encontraron archivos fuente en la solución. ¿Está vacía?")
     xml_content = "Solución vacía o sin componentes soportados."
 
-# Truncado general por seguridad de token (80k chars = ~20k tokens)
-xml_content = xml_content[:80000]
+# QA: GPT-4o soporta 128k tokens (~500k caracteres). Aumentamos el límite de 80k a 300k para soluciones Enterprise reales.
+xml_content = xml_content[:300000]
 
 # 3. El Prompt del Arquitecto
 system_prompt = """
@@ -90,8 +93,13 @@ payload = {
 }
 
 print("Enviando metadata de Dataverse a Azure AI Foundry...")
-response = requests.post(url, headers=headers, json=payload)
-response.raise_for_status()
+try:
+    # QA: Timeout estricto de 120s para no colgar el runner de GitHub Actions si Azure cae
+    response = requests.post(url, headers=headers, json=payload, timeout=120)
+    response.raise_for_status()
+except requests.exceptions.RequestException as e:
+    print(f"Error crítico: Falló la comunicación con Azure OpenAI Foundry: {e}")
+    sys.exit(1)
 
 # 5. Guardar el resultado Markdown
 os.makedirs("out", exist_ok=True)
