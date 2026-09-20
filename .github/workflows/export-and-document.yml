@@ -35,7 +35,7 @@ jobs:
         uses: microsoft/powerplatform-actions/unpack-solution@v1
         with:
           solution-file: 'out/exported_solution.zip'
-          solution-folder: 'src/solution'
+          solution-folder: 'src/solutions/${{ inputs.solution_name }}'
           solution-type: 'Unmanaged'
           process-canvas-apps: true
           
@@ -51,6 +51,7 @@ jobs:
         env:
           AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
           AZURE_OPENAI_KEY: ${{ secrets.AZURE_OPENAI_KEY }}
+          SOLUTION_NAME: ${{ inputs.solution_name }}
         run: python scripts/generate_docs.py
 
       - name: Hacer Commit y Push (Código y Documentación)
@@ -58,12 +59,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Mover el Markdown generado a la raíz del repositorio para máxima visibilidad
-          mv out/TECHNICAL_SPEC.md ./TECHNICAL_SPEC.md
+          # Mover el Markdown generado a la carpeta de la solución específica
+          mv out/TECHNICAL_SPEC.md src/solutions/${{ inputs.solution_name }}/TECHNICAL_SPEC.md
           
           # Añadir el código fuente desempaquetado y la documentación técnica
-          git add src/solution/
-          git add TECHNICAL_SPEC.md
+          git add src/solutions/${{ inputs.solution_name }}/
           
           if git diff --staged --quiet; then
             echo "No se detectaron cambios en la solución o la documentación."

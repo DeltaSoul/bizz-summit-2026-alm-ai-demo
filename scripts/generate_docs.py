@@ -8,9 +8,9 @@ API_KEY = os.environ.get("AZURE_OPENAI_KEY")
 DEPLOYMENT_NAME = "gpt-4o" # Nombre exacto del despliegue en Sweden Central
 
 # 2. Leer la metadata de la solución de forma agnóstica
-# Corrección arquitectónica: En lugar de buscar solo Other/customizations.xml, 
-# recorremos todo src/solution para capturar flujos (.json), tablas (.xml) y apps.
-solution_dir = "src/solution"
+# Corrección arquitectónica: Recorremos src/solutions/[NOMBRE_SOLUCION] para soportar un Monorepo
+solution_name_env = os.environ.get("SOLUTION_NAME", "BizzSummitDemoALM")
+solution_dir = f"src/solutions/{solution_name_env}"
 xml_content = ""
 
 if not os.path.exists(solution_dir):
