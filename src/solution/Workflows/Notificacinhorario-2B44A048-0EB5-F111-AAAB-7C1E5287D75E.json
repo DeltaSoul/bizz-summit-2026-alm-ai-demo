@@ -1,0 +1,67 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "zsl_sharedoffice365_ee2b8"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Hour",
+            "interval": 1,
+            "startTime": "2026-09-20T08:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "bab28f09-338d-470a-b98d-ef5844e5952f"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "Enviar_correo_electrónico_(V2)": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "493110a7-5bf8-4b7d-8e75-561ea2ee5b07"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "juan.hincapie@zerostatelabs.dev",
+              "emailMessage/Subject": "Estampa de tiempo actual @{utcNow()}",
+              "emailMessage/Body": "<p>Estampa de tiempo actual @{utcNow()}</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
