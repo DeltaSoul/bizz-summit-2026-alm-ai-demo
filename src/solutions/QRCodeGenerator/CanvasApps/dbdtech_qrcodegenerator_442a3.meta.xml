@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>dbdtech_qrcodegenerator_442a3</Name>
+  <AppVersion>2026-09-20T21:07:59Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.24044.23.0</CreatedByClientVersion>
+  <MinClientVersion>3.24044.23.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.24044.23","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>RGBA(0,176,240,1)</BackgroundColor>
+  <DisplayName>QR Code Generator</DisplayName>
+  <Description></Description>
+  <CommitMessage></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"249ae0d1-504d-440b-8c74-ac51461c448c":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Flujos lógicos","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1766/1.0.1766.4330/logicflows/icon.png","dataSources":["QRRequest"],"dependencies":[],"dependents":[],"parameterHints":{"workflowName":{"value":"ae8e4900-e69c-4638-8626-0e72804da14b"},"workflowEntityId":{"value":"5e86c0a8-c20c-ef11-9f89-000d3ad818a0"},"workflowDisplayName":{"value":"QR Request"}},"parameterHintsV2":{"workflowName":{"value":"ae8e4900-e69c-4638-8626-0e72804da14b"},"workflowEntityId":{"value":"5e86c0a8-c20c-ef11-9f89-000d3ad818a0"},"workflowDisplayName":{"value":"QR Request"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]}}</ConnectionReferences>
+  <DatabaseReferences>{}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/dbdtech_qrcodegenerator_442a3_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/dbdtech_qrcodegenerator_442a3_DocumentUri.msapp</DocumentUri>
+  <AdditionalUris>
+    <AdditionalUri>/CanvasApps/dbdtech_qrcodegenerator_442a3_AdditionalUris0_identity.json</AdditionalUri>
+  </AdditionalUris>
+</CanvasApp>
