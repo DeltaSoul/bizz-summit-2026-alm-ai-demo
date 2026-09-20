@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_zsl_customer" />
+  <EntityRelationship Name="business_unit_zsl_salesorderdetail" />
+  <EntityRelationship Name="lk_zsl_customer_createdby" />
+  <EntityRelationship Name="lk_zsl_customer_modifiedby" />
+  <EntityRelationship Name="lk_zsl_salesorderdetail_createdby" />
+  <EntityRelationship Name="lk_zsl_salesorderdetail_modifiedby" />
+  <EntityRelationship Name="owner_zsl_customer" />
+  <EntityRelationship Name="owner_zsl_salesorderdetail" />
+  <EntityRelationship Name="team_zsl_customer" />
+  <EntityRelationship Name="team_zsl_salesorderdetail" />
+  <EntityRelationship Name="user_zsl_customer" />
+  <EntityRelationship Name="user_zsl_salesorderdetail" />
+  <EntityRelationship Name="zsl_salesorderdetail_zsl_customer1_zsl_customer" />
+</EntityRelationships>

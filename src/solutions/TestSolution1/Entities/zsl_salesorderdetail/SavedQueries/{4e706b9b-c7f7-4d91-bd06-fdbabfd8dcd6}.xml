@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{4e706b9b-c7f7-4d91-bd06-fdbabfd8dcd6}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="zsl_name" select="1" icon="1" preview="1">
+        <row name="result" id="zsl_salesorderdetailid">
+          <cell name="zsl_name" width="300" />
+          <cell name="zsl_salesorderid" width="150" />
+          <cell name="zsl_salesorderdetailid1" width="150" />
+          <cell name="zsl_orderdate" width="150" />
+          <cell name="zsl_duedate" width="150" />
+          <cell name="zsl_shipdate" width="150" />
+          <cell name="zsl_employeeid" width="150" />
+          <cell name="zsl_customerid" width="150" />
+          <cell name="zsl_subtotalamount" width="150" />
+          <cell name="zsl_taxamount" width="150" />
+          <cell name="zsl_freightcharge" width="150" />
+          <cell name="zsl_totaldue" width="150" />
+          <cell name="zsl_productid" width="150" />
+          <cell name="zsl_orderquantity" width="150" />
+          <cell name="zsl_unitprice" width="150" />
+          <cell name="zsl_unitpricediscount" width="150" />
+          <cell name="zsl_linetotal" width="150" />
+          <cell name="zsl_customer1" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="zsl_salesorderdetail">
+          <attribute name="zsl_salesorderdetailid" />
+          <attribute name="zsl_name" />
+          <attribute name="createdon" />
+          <order attribute="zsl_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="zsl_salesorderid" />
+          <attribute name="zsl_salesorderdetailid1" />
+          <attribute name="zsl_orderdate" />
+          <attribute name="zsl_duedate" />
+          <attribute name="zsl_shipdate" />
+          <attribute name="zsl_employeeid" />
+          <attribute name="zsl_customerid" />
+          <attribute name="zsl_subtotalamount" />
+          <attribute name="zsl_taxamount" />
+          <attribute name="zsl_freightcharge" />
+          <attribute name="zsl_totaldue" />
+          <attribute name="zsl_productid" />
+          <attribute name="zsl_orderquantity" />
+          <attribute name="zsl_unitprice" />
+          <attribute name="zsl_unitpricediscount" />
+          <attribute name="zsl_linetotal" />
+          <attribute name="zsl_customer1" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Sales Order Detail activo" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

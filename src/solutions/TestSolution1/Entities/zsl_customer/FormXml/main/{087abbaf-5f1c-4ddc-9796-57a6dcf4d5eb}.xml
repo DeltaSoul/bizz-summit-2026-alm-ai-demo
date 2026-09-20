@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{087abbaf-5f1c-4ddc-9796-57a6dcf4d5eb}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{9A651B83-81E2-4F0E-880A-58CBEBFBE71C}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="3082" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{B08794EE-96C5-449D-B8B6-264C5E64E5FE}">
+                  <labels>
+                    <label description="General" languagecode="3082" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{CB7F899B-E1EE-4E90-89E0-B30B0BF75EB4}">
+                        <labels>
+                          <label description="FullName" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_fullname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="zsl_fullname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{A847F571-C50C-421C-BBFD-A81C5050F3F5}">
+                        <labels>
+                          <label description="Propietario" languagecode="3082" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{aed9fd8e-0414-4a3a-8fd8-d0adc7a92155}">
+                        <labels>
+                          <label description="CustomerID" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_customerid1" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_customerid1" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{519f3db0-572b-403d-9e52-96da8d63a12c}">
+                        <labels>
+                          <label description="FirstName" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_firstname" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="zsl_firstname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c8f8ae25-d253-4e6a-90e1-7a635b19d424}">
+                        <labels>
+                          <label description="LastName" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_lastname" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="zsl_lastname" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Información" languagecode="3082" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Formulario para esta entidad." languagecode="3082" />
+    </Descriptions>
+  </systemform>
+</forms>

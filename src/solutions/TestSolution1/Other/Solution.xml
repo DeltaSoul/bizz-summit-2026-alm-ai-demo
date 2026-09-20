@@ -80,6 +80,8 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="1" schemaName="zsl_customer" behavior="0" />
+      <RootComponent type="1" schemaName="zsl_salesorderdetail" behavior="0" />
       <RootComponent type="29" id="{2b44a048-0eb5-f111-aaab-7c1e5287d75e}" behavior="0" />
     </RootComponents>
     <MissingDependencies />

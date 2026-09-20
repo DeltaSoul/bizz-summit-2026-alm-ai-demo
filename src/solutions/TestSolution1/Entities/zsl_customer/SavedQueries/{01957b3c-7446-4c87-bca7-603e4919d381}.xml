@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{01957b3c-7446-4c87-bca7-603e4919d381}</savedqueryid>
+    <layoutxml>
+      <grid name="zsl_customers" jump="zsl_fullname" select="1" icon="1" preview="1">
+        <row name="zsl_customer" id="zsl_customerid">
+          <cell name="zsl_fullname" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="zsl_customer">
+          <attribute name="zsl_customerid" />
+          <attribute name="zsl_fullname" />
+          <attribute name="createdon" />
+          <order attribute="zsl_fullname" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Vista asociada de Customer" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

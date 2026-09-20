@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{e919030b-ecb3-4d3b-8f48-cdb165d9f1fb}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="zsl_fullname" select="1" icon="1" preview="1">
+        <row name="result" id="zsl_customerid">
+          <cell name="zsl_fullname" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="zsl_customer">
+          <attribute name="zsl_customerid" />
+          <attribute name="zsl_fullname" />
+          <attribute name="createdon" />
+          <order attribute="zsl_fullname" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Customer inactivo" languagecode="3082" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{0fc10cc2-49f9-4c8b-8b11-eb0e8841aa38}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{8A530D68-04A5-4EC0-827D-536662E8DAE6}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="3082" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{52A6C00A-F312-434C-BD27-598283EF4A95}">
+                  <labels>
+                    <label description="General" languagecode="3082" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{435B3EE6-5536-4135-A10A-B730690DB85B}">
+                        <labels>
+                          <label description="Primary Column" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="zsl_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{B34E183D-F7BD-4977-901D-3B2A16A6001E}">
+                        <labels>
+                          <label description="Propietario" languagecode="3082" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a77e1f38-44f3-4bf7-b08f-399e347dd947}">
+                        <labels>
+                          <label description="SalesOrderID" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_salesorderid" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_salesorderid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1cc4d50a-f5e5-4e45-a4b1-0befd9c32f7c}">
+                        <labels>
+                          <label description="SalesOrderDetailID" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_salesorderdetailid1" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_salesorderdetailid1" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0ea7271a-a01a-49a2-be8f-902485a0f84f}">
+                        <labels>
+                          <label description="OrderDate" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_orderdate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="zsl_orderdate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cf6e9ab1-8fac-473a-86e8-880471bdb20f}">
+                        <labels>
+                          <label description="DueDate" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_duedate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="zsl_duedate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3be51cd4-b683-45d5-a74a-975769ee85b1}">
+                        <labels>
+                          <label description="ShipDate" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_shipdate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="zsl_shipdate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{73c55e1a-1284-46a1-8daa-bd24565cca45}">
+                        <labels>
+                          <label description="EmployeeID" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_employeeid" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_employeeid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6157539f-c590-49a3-badf-dff4aa3b5e04}">
+                        <labels>
+                          <label description="CustomerID" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_customerid" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_customerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{985c672c-61e8-47be-8da4-e9fbd386046c}">
+                        <labels>
+                          <label description="SubTotal" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_subtotalamount" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_subtotalamount" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{83e578dc-b65f-45d8-aec2-35fb13addf1c}">
+                        <labels>
+                          <label description="TaxAmt" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_taxamount" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_taxamount" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f51ead1e-6c4c-447c-a4ab-92ccadec6e57}">
+                        <labels>
+                          <label description="Freight" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_freightcharge" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_freightcharge" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2726d312-a4f4-45b2-9ef1-a995516b3177}">
+                        <labels>
+                          <label description="TotalDue" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_totaldue" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_totaldue" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bfbf7f98-b0eb-4210-93f0-66972f92c91c}">
+                        <labels>
+                          <label description="ProductID" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_productid" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_productid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b1a51c96-9d8e-4cd1-a5e8-88e558d91f13}">
+                        <labels>
+                          <label description="OrderQty" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_orderquantity" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="zsl_orderquantity" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1ce73601-3415-4f98-8e6a-34a5118d67d2}">
+                        <labels>
+                          <label description="UnitPrice" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_unitprice" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_unitprice" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c90ce479-531d-4572-a1fb-308b23be9865}">
+                        <labels>
+                          <label description="UnitPriceDiscount" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_unitpricediscount" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_unitpricediscount" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f579812-bb27-4e44-9a78-0da267083b70}">
+                        <labels>
+                          <label description="LineTotal" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_linetotal" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="zsl_linetotal" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c98b2a6f-6641-4d60-97a6-9fbf86d0abee}">
+                        <labels>
+                          <label description="Customer" languagecode="3082" />
+                        </labels>
+                        <control id="zsl_customer1" classid="{270bd3db-d9af-4782-9025-509e298dec0a}" datafieldname="zsl_customer1" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Información" languagecode="3082" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Formulario para esta entidad." languagecode="3082" />
+    </Descriptions>
+  </systemform>
+</forms>
