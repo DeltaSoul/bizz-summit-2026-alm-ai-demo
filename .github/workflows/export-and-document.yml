@@ -70,5 +70,6 @@ jobs:
           else
             # El flag [skip ci] impide la recursividad infinita del pipeline
             git commit -m "build & docs: actualizar código fuente y autodocumentación [skip ci]"
+            git pull --rebase origin main
             git push
           fi
