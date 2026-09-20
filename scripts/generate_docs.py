@@ -52,6 +52,7 @@ DEBES SEGUIR EXACTAMENTE ESTA ESTRUCTURA DE DOCUMENTO:
 
 ## 2. Inventario de Componentes
 (Crea una tabla Markdown con todos los componentes detectados).
+CRÍTICO: NO incluyas archivos de metadatos internos del framework (como Solution.xml, Customizations.xml o archivos .json/.xml de configuración) en esta tabla. Lista ÚNICAMENTE componentes reales de negocio (Flows, Canvas Apps, Tablas, Connection References, Variables).
 | Display Name | Logical Name / Archivo | Tipo (Flow, Table, App, EnvVar) | Descripción / Propósito |
 |---|---|---|---|
 
