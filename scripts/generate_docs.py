@@ -58,7 +58,7 @@ CRÍTICO: NO incluyas archivos de metadatos internos del framework (como Solutio
 
 ## 3. Modelo de Datos (Dataverse)
 (Si encuentras tablas/entidades en XML, genera un diagrama Entidad-Relación usando ```mermaid erDiagram```. 
-CRÍTICO SINTAXIS MERMAID: En `erDiagram`, cada atributo DEBE llevar un tipo de dato, nombre y clave, separados por espacios. 
+CRÍTICO SINTAXIS MERMAID: En `erDiagram`, cada atributo DEBE llevar un tipo de dato, nombre y clave, separados por espacios. PROHIBIDO usar tildes o eñes.
 EJEMPLO ESTRICTO: 
 ```mermaid
 erDiagram
@@ -71,7 +71,9 @@ Detalla los campos clave. Si no hay tablas, escribe "No aplica").
 
 ## 4. Lógica de Procesos (Power Automate)
 (Por cada flujo JSON encontrado, redacta una breve explicación de sus triggers y acciones. Luego, dibuja la lógica usando ```mermaid flowchart TD```. Si no hay flujos, escribe "No aplica". 
-CRÍTICO SINTAXIS MERMAID: En Mermaid, si el texto de un nodo tiene paréntesis u otros caracteres especiales, DEBES envolverlo obligatoriamente en comillas dobles, ejemplo: `B["Enviar correo (V2)"]`).
+CRÍTICO SINTAXIS MERMAID: 
+1. Si el texto de un nodo tiene paréntesis u otros caracteres especiales, envuélvelo en comillas dobles, ej: `B["Enviar correo (V2)"]`.
+2. PROHIBIDO usar tildes, eñes o símbolos raros dentro del código Mermaid. Usa texto limpio (ej. "Notificacion" en lugar de "Notificación") para evitar que el renderizador de GitHub colapse.)
 
 ## 5. Interfaz de Usuario (Canvas / Model-Driven)
 (Si encuentras definiciones de Apps, resume sus pantallas principales y su propósito. Si no hay, escribe "No aplica").
