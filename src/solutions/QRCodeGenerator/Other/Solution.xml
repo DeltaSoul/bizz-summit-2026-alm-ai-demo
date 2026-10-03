@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.26084.156" SolutionPackageVersion="9.2" languagecode="3082" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26084.156" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26084.00156">
+<ImportExportXml version="9.2.26085.166" SolutionPackageVersion="9.2" languagecode="3082" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26085.166" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26091.00158">
   <SolutionManifest>
     <UniqueName>QRCodeGenerator</UniqueName>
     <LocalizedNames>
       <LocalizedName description="QR Code Generator" languagecode="3082" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>DBDTechnologies</UniqueName>
